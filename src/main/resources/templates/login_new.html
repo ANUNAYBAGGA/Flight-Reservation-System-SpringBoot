@@ -1,0 +1,108 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <style>
+        #build1{
+            position: fixed;
+            left: 950px;
+           
+            
+        }
+        #build2{
+            position: fixed;
+            left: 1200px;
+        }
+        #tree{
+            position: fixed;
+            top:300px;
+            left: 1100px;
+        }
+        #myDIV{
+            width: 100px;
+            height: 50px;
+            top:125px;
+            font-weight: bold;
+            position: relative;
+            animation: mymove 1.5s ;
+            
+            animation-timing-function: linear;
+            
+        }
+       
+        @keyframes mymove {
+            from {left: 0px;}
+            to {left: 600px;}
+            
+        }
+        input[type=email], select,input[type=password] {
+            width: 30%;
+            font-style: "Georgia";
+            font-size: 24px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+}
+        input[type=submit], input[type=reset] {
+            background-color: #8e2397;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        
+    </style>
+    <script>
+        var myVar = setTimeout(func, 1500);
+        function func(){
+            var x = document.getElementById("msg");
+            var p = document.getElementById("myDIV")
+            p.style.visibility = "hidden";
+            var b1 = document.getElementById("build1");
+            var b2 = document.getElementById("build2");
+            var t = document.getElementById("tree");
+            t.style.visibility = "hidden";
+            b1.style.visibility = "hidden";
+            b2.style.visibility = "hidden";
+            x.style.visibility = "visible";
+            x.style.fontFamily = "Georgia";
+        }
+    </script>
+    <body bgcolor="#0f1923">
+        <div id = 'myDIV'><img src = '\images\plane.jpg' width = 350px height = 150px></div>
+        
+        <img src = '\images\building1.jpg' width = 200px height = 500px id = 'build1'>
+        <img src = '\images\building1.jpg' width = 200px height = 500px id = 'build2'>
+        <img src = '\images\tree.png' width = 200px height = 300px id = 'tree'>
+        <div id = 'msg' style = 'visibility:hidden;color: white;text-align: center;'>
+            <img src = "\images\goblin.jpg" style = "position:fixed; left:100px;"width = 320px height = 500px>
+            <h1>Psych !!!</h1> 
+            <h2>Our bookings wont crash even if you book on a Sept 11.</h2> <br> <br>
+            <form id="form" name="form" class="form-signin" method="post"  onsubmit="return validate()">
+                
+                <h3>Email ID : </h3>
+                <input type="email" id="emailID" class="form-control" name="emailID"
+                       placeholder="Enter Email ID" autofocus><br>
+                <h3>Password : </h3> 
+                <input type = 'password' id="password" class="form-control" name="password" placeholder="Enter Password" required><br><br><br>
+                <input type = 'submit'  value="Sign In"> <input type = 'reset' value="Reset">
+            </form>
+            <p th:text = ${reply}></p>
+            <a href = "/signup" style = "color: #8e2397;">Create New Account</a>
+        </div>
+
+        <script>
+         var mailformat = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+         if(!document.forms["form"]["emailID"].value.match(mailformat))
+         {
+         alert("You have entered an invalid email address!");
+         return false;
+         }
+
+</script>
+
+    </body>
+</html>
